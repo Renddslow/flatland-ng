@@ -44,6 +44,15 @@ export class PostComponent implements OnInit {
 						this.pageData.jumbotronImage = data.image;
 						console.log(this.pageData);
 					});
+			} else if (this.route.toString().includes("blog")) {
+				this.http.request(`https://api.flatlandchurch.com/v1/blog/post/${params['permalink']}`)
+					.subscribe((res: Response) => {
+						let data = res.json();
+						this.pageData.title = data.title;
+						this.pageData.jumbotronImage = data.image;
+						this.pageData.content = data.text;
+						this.pageData.metaFields = [data.author, data.date_published];
+					});
 			}
 		});
   }
