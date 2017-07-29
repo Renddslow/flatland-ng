@@ -10,10 +10,18 @@ import { Http, Response } from '@angular/http';
 export class PageComponent implements OnInit {
 	sub: any;
 	permalink: string;
-	page: object;
+	page: Page;
 	timeChange: string = null;
 
-  constructor(private http: Http, private route: ActivatedRoute) { }
+  constructor(private http: Http, private route: ActivatedRoute) {
+		this.page = {
+			callout: "",
+			components: [{}],
+			content: "",
+			jumbotronImage: "",
+			meta: {}
+		}
+	}
 
   ngOnInit() {
 		let pageURI = "https://api.flatlandchurch.com/v2/pages/";
@@ -35,4 +43,12 @@ export class PageComponent implements OnInit {
 		});
   }
 
+}
+
+class Page {
+	callout: string = "";
+	components: [object];
+	content: string = "";
+	jumbotronImage: string = "";
+	meta: object;
 }
