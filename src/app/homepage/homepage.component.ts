@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Http, Response } from '@angular/http';
+
+import { Page } from '../page';
 
 @Component({
   selector: 'app-homepage',
@@ -7,35 +11,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 	stuff = "header-nav";
-	page = {
-		meta: {
-			permalink: "/",
-			title: "Welcome to Flatland Church",
-			description: "Located in Omaha, NE we help you move to the center of God's Kindgom.",
-			canonical: "https://flatlandchurch.com/",
-			type: "site",
-			mainImage: "https://flatlandchurch.com/static/uploads/background.jpg",
-			site: "",
-			card: "",
-			place: {}
-		},
-		jumbotronImage: "https://flatlandchurch.com/static/uploads/background.jpg",
-		callout: "Experience Home",
-		callToAction: {
-			uri: "/visit",
-			label: "Plan a Visit"
-		},
-		components: [],
-		content: "Flatland is all about moving people to the center of God's kingdom. Through creative presentations and messages you will discover what God's kingdom is all about and how being a part of it will transform your life in a powerful way."
-	};
+	permalink: string;
+	sub: any;
+	page: Page;
 
-  constructor() { }
+  constructor(private http: Http, private router: Router, private route: ActivatedRoute) {
+		this.page = {
+			callout: "",
+			components: [{}],
+			content: "",
+			jumbotronImage: "",
+			meta: {}
+		}
+	}
 
-  ngOnInit() {
+	ngOnInit() {
+		this.router.events.subscribe((evt) => {
+        if (!(evt instanceof NavigationEnd)) {
+            return;
+        }
+        window.scrollTo(0, 0)
+    });
+		let pageURI = "https://api.flatlandchurch.com/v2/pages/";
+		this.http.request(`${pageURI}home`)
+			.subscribe((res: Response) => {
+				this.page = res.json();
+			});
   }
 
-}
-
-class PageComponent {
-	type: string;
 }
