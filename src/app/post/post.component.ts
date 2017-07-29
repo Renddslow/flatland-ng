@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd  } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -22,9 +22,15 @@ export class PostComponent implements OnInit {
 		jumbotronImage: null
 	};
 
-  constructor(private http: Http, private route: ActivatedRoute) { }
+  constructor(private http: Http, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+		this.router.events.subscribe((evt) => {
+        if (!(evt instanceof NavigationEnd)) {
+            return;
+        }
+        window.scrollTo(0, 0)
+    });
 		this.sub = this.route.params.subscribe(params => {
 			if (this.route.toString().includes("enjoy")) {
 				this.http.request(`https://api.flatlandchurch.com/v1/events/${params['permalink']}`)

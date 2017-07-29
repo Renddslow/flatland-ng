@@ -5,4 +5,11 @@ import { Component, Input } from '@angular/core';
   templateUrl: './header-mobile-menu.component.html',
   styleUrls: ['./header-mobile-menu.component.css']
 })
-export class HeaderMobileMenuComponent { @Input() navigation: [object] }
+export class HeaderMobileMenuComponent {
+	@Input() navigation: [object]
+
+	hideMenu = () => {
+		let element = document.getElementById("menu-toggle");
+		(<HTMLInputElement>element).checked = false;
+	}
+}
