@@ -1,7 +1,7 @@
 <div class="mobile-menu">
 	<ul>
 		<li *ngFor="let navItem of navigation">
-			<a [routerLink]="[navItem.uri]">
+			<a [routerLink]="[navItem.uri]" (click)="hideMenu()">
 				{{ navItem.mainLabel }}
 				<sub>{{ navItem.subLabel }}</sub>
 			</a>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Http, Response } from '@angular/http';
 
 @Component({
@@ -13,7 +13,7 @@ export class PageComponent implements OnInit {
 	page: Page;
 	timeChange: string = null;
 
-  constructor(private http: Http, private route: ActivatedRoute) {
+  constructor(private http: Http, private route: ActivatedRoute, private router: Router) {
 		this.page = {
 			callout: "",
 			components: [{}],
@@ -24,6 +24,12 @@ export class PageComponent implements OnInit {
 	}
 
   ngOnInit() {
+		this.router.events.subscribe((evt) => {
+        if (!(evt instanceof NavigationEnd)) {
+            return;
+        }
+        window.scrollTo(0, 0)
+    });
 		let pageURI = "https://api.flatlandchurch.com/v2/pages/";
 		let timeURI = "https://api.flatlandchurch.com/v1/times/changes";
 		this.sub = this.route.params.subscribe(params => {
