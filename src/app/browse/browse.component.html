@@ -1,0 +1,17 @@
+<div class="page">
+	<div class="page-background" [ngStyle]="{'background-image': 'url(' + latestSermon['image'] + ')'}">
+		<h1>Browse Sermons</h1>
+		<a href="/watch/{{ latestSermon['permalink'] }}">Watch Latest Sermon</a>
+		<div class="gradient"></div>
+	</div>
+	<div class="page-card">
+		<div class="page-card-nav">
+			<ul>
+				<li *ngFor="let navItem of navigation"><a [routerLink]="navItem.uri">{{ navItem.label }}</a></li>
+			</ul>
+		</div>
+		<div class="page-component">
+			<page-image-card [type]="'watch'"></page-image-card>
+		</div>
+	</div>
+</div>

@@ -19,3 +19,14 @@
 	</a>
 	<a class="cta" style="width: 100%;" href="/blog?page={{ page + 1 }}" (click)="loadMore($event, 'blog')">Load More</a>
 </div>
+
+<div class="card-container" *ngIf="type == 'watch'">
+	<a *ngFor="let sermon of sermons" class="image-card" [routerLink]="['/watch', sermon['permalink']]">
+		<div class="card-image video" [ngStyle]="{'background-image': 'url(' + sermon['image'] + ')'}"></div>
+		<div class="card-meta video">
+			<h2>{{ sermon['title'] }}</h2>
+			<span>{{ sermon['series'] }}</span>
+		</div>
+	</a>
+	<a class="cta" style="width: 100%;" (click)="loadMore($event, 'watch')">Load More</a>
+</div>
