@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Http, Response } from '@angular/http';
 
+import { Page } from '../page';
+
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',
@@ -49,13 +51,4 @@ export class PageComponent implements OnInit {
 		});
   }
 
-}
-
-class Page {
-	callout: string = "";
-	components: [object];
-	content: string = "";
-	jumbotronImage: string = "";
-	meta: object;
-	navigation?: [object];
 }
