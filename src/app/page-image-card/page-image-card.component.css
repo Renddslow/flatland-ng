@@ -29,6 +29,10 @@
   background-size: cover;
 }
 
+.card-image.video {
+	padding-bottom: 56%;
+}
+
 .card-meta {
   display: block;
   width: 100%;
@@ -42,6 +46,11 @@
   margin: .5em 0;
   text-align: left;
 	font-size: 1.4em;
+}
+
+.card-meta span {
+	color: #666;
+	font-weight: 300;
 }
 
 .card-meta-data {
@@ -89,9 +98,19 @@
 		float: left;
 	}
 
+	.card-image.video {
+		width: 35%;
+		padding-bottom: 20%;
+		background-position: center;
+	}
+
 	.card-meta {
 		width: 75%;
 		float:left;
 		clear: right;
+	}
+
+	.card-meta.video {
+		width: 65%;
 	}
 }

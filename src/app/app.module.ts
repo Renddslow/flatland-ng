@@ -24,11 +24,13 @@ import { PageMarkdownComponent } from './page-markdown/page-markdown.component';
 import { PageFormComponent } from './page-form/page-form.component';
 import { PageImageCardComponent } from './page-image-card/page-image-card.component';
 import { PostComponent } from './post/post.component';
+import { BrowseComponent } from './browse/browse.component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomepageComponent },
 	{ path: 'enjoy/:permalink', component: PostComponent },
 	{ path: 'blog/:permalink', component: PostComponent },
+	{ path: 'watch', component: BrowseComponent },
 	{ path: ':permalink', component: PageComponent },
 	{ path: ':parent/:permalink', component: PageComponent },
 ];
@@ -53,7 +55,8 @@ const appRoutes: Routes = [
     PageMarkdownComponent,
     PageFormComponent,
     PageImageCardComponent,
-    PostComponent
+    PostComponent,
+    BrowseComponent
   ],
   imports: [
     BrowserModule,

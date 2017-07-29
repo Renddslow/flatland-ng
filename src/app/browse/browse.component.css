@@ -1,0 +1,11 @@
+.page-background > a {
+	width: 300px;
+	display: block;
+	text-align: center;
+	margin: 1em auto;
+	color: #333;
+	background: #fff;
+	padding: .5em 0;
+	font-size: 1.3em;
+	font-weight: 300;
+}

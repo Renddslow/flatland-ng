@@ -20,18 +20,13 @@ export class PageImageCardComponent implements OnInit {
 
   ngOnInit() {
 		if (this.type.includes("watch")) {
-			this.http.request(`https://api.flatlandchurch.com/v1/watch/sermons?page=${this.page}`)
-				.subscribe((res: Response) => {
-					this.sermons.concat(res.json()['sermons']);
-					console.log(this.sermons);
-				});
+			this.getSermons();
 		} else if (this.type.includes("enjoy")) {
 			this.http.request(`https://api.flatlandchurch.com/v1/events/`)
 				.subscribe((res: Response) => {
 					this.events = this.events.concat(res.json()['events']);
 				});
 		} else if (this.type.includes("blog")) {
-			console.log("stuff")
 			this.getBlogPosts();
 		}
   }
@@ -42,6 +37,9 @@ export class PageImageCardComponent implements OnInit {
 			case "blog":
 				this.getBlogPosts();
 				history.pushState(null, null, `/blog?page=${this.page + 1}`);
+				break;
+			case "watch":
+				this.getSermons();
 		}
 	}
 
@@ -49,7 +47,14 @@ export class PageImageCardComponent implements OnInit {
 		this.http.request(`https://api.flatlandchurch.com/v1/blog/posts?page=${this.page}`)
 			.subscribe((res: Response) => {
 				this.posts = this.posts.concat(res.json());
-				console.log(this.posts)
+				this.page += 1;
+			});
+	};
+
+	getSermons = () => {
+		this.http.request(`https://api.flatlandchurch.com/v1/watch/sermons?page=${this.page}`)
+			.subscribe((res: Response) => {
+				this.sermons = this.sermons.concat(res.json()['sermons']);
 				this.page += 1;
 			});
 	};
