@@ -1,0 +1,10 @@
+<div class="mobile-menu">
+	<ul>
+		<li *ngFor="let navItem of navigation">
+			<a [routerLink]="[navItem.uri]">
+				{{ navItem.mainLabel }}
+				<sub>{{ navItem.subLabel }}</sub>
+			</a>
+		</li>
+	</ul>
+</div>

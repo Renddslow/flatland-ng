@@ -1,0 +1,41 @@
+.page-form {
+	width: 95%;
+	display: block;
+	margin: 3em auto;
+}
+
+input {
+	-moz-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  color: #333;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  font-size: 1em;
+  box-sizing: border-box;
+  padding: .5em 0;
+  outline: none;
+  margin-bottom: 1em;
+  background: #fff;
+  border-radius: 0;
+  border-bottom: 1px solid #666;
+}
+
+input:focus {
+	border-bottom-width: 2px;
+}
+
+.form-group {
+	display: flex;
+	margin: 1em 0;
+}
+
+.half {
+	width: 48%;
+	margin: auto;
+}
+
+.full {
+	width: 98%;
+	margin: auto;
+}

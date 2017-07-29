@@ -1,0 +1,21 @@
+.login-bar ul {
+	display: block;
+	width: 25%;
+	margin: .5em 1em;
+	float: right;
+	text-align: right;
+}
+
+.login-bar ul li {
+	display: inline;
+}
+
+.login-bar ul li a {
+	color: #efefef;
+  font-family: "Open Sans", sans-serif;
+  margin: 0 1em;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: .9em;
+  transition: .3s ease-out;
+}

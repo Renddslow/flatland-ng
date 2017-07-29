@@ -1,0 +1,38 @@
+<div class="page-form {{ name }}" [ngSwitch]="name">
+
+	<h2>{{ title }}</h2>
+
+	<form *ngSwitchCase="'visit'" #heroForm="ngForm">
+		<div class="form-group">
+			<input type="text" [(ngModel)]="visitor.firstName" class="half" name="firstName" #name="ngModel" placeholder="Your First Name">
+			<input type="text" [(ngModel)]="visitor.lastName" class="half" name="lastName" placeholder="Your Last Name">
+		</div>
+
+		<div class="form-group">
+			<input type="email" class="full" [(ngModel)]="visitor.email" name="email" #name="ngModel" placeholder="Email">
+		</div>
+		<div class="form-group">
+			<input type="text" class="full" [(ngModel)]="visitor.phone" name="phone" #name="ngModel" placeholder="Phone">
+		</div>
+
+		<a class="cta" *ngIf="visitor.spouseCount < 1" (click)="addSpouse()">Add Spouse</a>
+		<div class="form-group">
+			<input type="text" *ngIf="visitor.spouseCount == 1" class="full" [(ngModel)]="visitor.spouse.name" placeholder="Spouse's First Name" name="spouse.name" #name="ngModel" placeholder="Spouse's Name">
+		</div>
+
+		<a class="cta" (click)="addChild()">Add Child</a>
+		<div class="children form-group" *ngFor="let child of visitor.children; let currentIndex = index">
+			<input type="text" class="half" [(ngModel)]="visitor.children[currentIndex].name" placeholder="Child's Name" name="name" #name="ngModel">
+			<input type="text" class="half" [(ngModel)]="visitor.children[currentIndex].dob" placeholder="Date of Birth (mm/dd/yyyy)" name="dob" #name="ngModel">
+		</div>
+
+		<span>When Can We Expect You?</span>
+		<div class="date-pick-container">
+			<label *ngFor="let date of dates">
+				{{ date.friendly }}
+				<em>{{ date.short }}</em>
+				<input type="radio" value="{{ date.value }}">
+			</label>
+		</div>
+	</form>
+</div>

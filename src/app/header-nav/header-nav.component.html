@@ -1,0 +1,8 @@
+<ul>
+	<li *ngFor="let navItem of navigation" class="header-nav-item">
+		<a [routerLink]="[navItem.uri]">
+			{{ navItem.mainLabel }}
+			<sub>{{ navItem.subLabel }}</sub>
+		</a>
+	</li>
+</ul>

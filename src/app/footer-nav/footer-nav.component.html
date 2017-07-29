@@ -1,0 +1,5 @@
+<div class="footer-nav">
+	<ul>
+		<li *ngFor="let navItem of navigation"><a [routerLink]="[navItem.uri]">{{ navItem.label }}</a></li>
+	</ul>
+</div>

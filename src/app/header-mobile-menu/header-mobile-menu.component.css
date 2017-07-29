@@ -1,0 +1,43 @@
+.mobile-menu {
+	display: block;
+	width: 50%;
+	height: 100vh;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	right: -50%;
+	background: #333;
+	z-index: 77;
+	transition: right .2s ease-out;
+	-webkit-transition: right .2s ease-out;
+	-moz-transition: right .2s ease-out;
+}
+
+.mobile-menu ul {
+	display: block;
+	text-align: center;
+	margin: 3em 0;
+	overflow: hidden;
+}
+
+.mobile-menu ul li a {
+	color: #fafafa;
+	font-size: 1.5em;
+	margin: 1.5em 0;
+	display: block;
+	text-align: center;
+	font-family: "Montserrat", sans-serif;
+}
+
+.mobile-menu ul li a sub {
+	clear: both;
+	display: block;
+	font-size: 14px;
+}
+
+@media screen and (max-width: 640px) {
+	.mobile-menu {
+		width: 75%;
+		right: -75%;
+	}
+}

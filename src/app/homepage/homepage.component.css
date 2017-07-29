@@ -1,0 +1,69 @@
+.homepage-jumbo {
+  width: 100%;
+  display: block;
+  height: calc(100vh - 122px);
+  background-size: cover;
+  background-position: center;
+	overflow: hidden;
+}
+
+.homepage-content-zone {
+  display: block;
+  width: 100%;
+  margin: calc(40vh - 6em) auto 0;
+  text-align: center;
+}
+
+.homepage-content-zone h1 {
+	color: #fff;
+	font-size: 6em;
+	text-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+.homepage-content-zone a {
+  width: 200px;
+  display: block;
+  text-align: center;
+  margin: 1em auto;
+  color: #333;
+  background: #fff;
+  padding: .5em 0;
+  font-size: 1.3em;
+	font-weight: 300;
+}
+
+.homepage-slogan span {
+	width: 50%;
+  display: block;
+  text-align: justify;
+  margin: 3em auto;
+  font-weight: 300;
+  font-size: 1.7em;
+  line-height: 2;
+	color: #333;
+}
+
+@media screen and (max-width: 960px) {
+	.homepage-content-zone {
+		margin: calc(40vh - 3em) auto 0;
+	}
+
+	.homepage-content-zone h1 {
+		font-size: 4em;
+	}
+
+	.homepage-slogan span {
+		width: 75%;
+		font-size: 1.2em;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.homepage-content-zone {
+		margin: calc(40vh - 3em) auto 0;
+	}
+
+	.homepage-content-zone h1 {
+		font-size: 2em;
+	}
+}

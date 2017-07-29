@@ -1,0 +1,28 @@
+.header-nav-item {
+	display: inline-block;
+	margin-left: 1.5em;
+	font-size: 1.3em;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+
+.header-nav-item a {
+	color: #808080;
+  opacity: .8;
+  transition: opacity .3s ease-out;
+	-webkit-transition: opacity .3s ease-out;
+	-moz-transition: opacity .3s ease-out;
+	font-family: "Montserrat", sans-serif;
+}
+
+.header-nav-item a sub {
+	display: block;
+  clear: both;
+	font-size: 10px;
+	opacity: .6;
+}
+
+.header-nav-item a:hover {
+	opacity: 1;
+}

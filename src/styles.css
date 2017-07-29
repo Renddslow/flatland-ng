@@ -1,1 +1,218 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	font-family: "Open Sans", sans-serif;
+}
+
+p > a {
+	color: #111;
+  font-weight: 500;
+}
+
+markdown li {
+  list-style: none;
+  margin: 1em;
+}
+
+markdown h2 {
+	text-align: left;
+  margin: 0 0 .5em;
+}
+
+.cta {
+	max-width: 295px;
+	display: block;
+	margin: 1em auto;
+	text-align: center;
+	color: #eee;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  background: #333;
+  padding: 1em 0;
+  box-sizing: border-box;
+	cursor: pointer;
+}
+
+header {
+  width: 100%;
+  display: block;
+  clear: both;
+  overflow: hidden;
+}
+
+header-login {
+	width: 100%;
+  display: block;
+  background: #444;
+  overflow: hidden;
+  position: relative;
+	z-index: 90;
+}
+
+header-logo {
+  display: block;
+  width: 25%;
+  overflow: hidden;
+  float: left;
+	margin: 1em auto;
+	padding: 0 2em;
+	box-sizing: border-box;
+}
+
+header-nav {
+	width: 75%;
+  margin: 1.7em 0 0;
+	padding: 0 2em;
+  text-align: right;
+  display: block;
+  float: right;
+	box-sizing: border-box;
+}
+
+#menu-toggle,
+header-mobile-hamburger,
+header-mobile-menu  {
+	display: none;
+}
+
+.content-wrapper {
+	display: block;
+	overflow: hidden;
+	margin: 0 auto;
+	width: 100%;
+}
+
+h2 {
+	font-size: 1.6em;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  color: #333;
+  text-align: center;
+  margin: 2em 0 1em;
+}
+
+
+.page {
+	width: 100%;
+	display: block;
+	position: relative;
+}
+
+.page-background {
+	background-size: cover;
+	height: 76vh;
+	background-position: center;
+	position: relative;
+	overflow: hidden;
+}
+
+.page-background h1 {
+	color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  font-size: 3em;
+  text-transform: uppercase;
+  text-align: center;
+	margin: 15vh auto 0;
+	text-shadow: 0 2px 8px rgba(0,0,0,1);
+	width: 95%;
+}
+
+.gradient {
+	position:absolute;
+	z-index:2;
+	right:0; bottom:0; left:0;
+	height:200px;
+	background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 70%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(70%,rgba(255,255,255,1)));
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+	background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+	background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+	background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+}
+
+.page-card {
+	display: block;
+	margin: 1em auto -25vh;
+	width: 85%;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+	background: #fff;
+	position: relative;
+	top: -30vh;
+	z-index: 3;
+	box-sizing: border-box;
+	padding-bottom: 2em;
+}
+
+.page-card-nav {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #333;
+}
+
+.page-card-nav ul {
+  text-align: center;
+  padding: .5em 0;
+}
+
+.page-card-nav ul li {
+  display: inline;
+  margin: 0 1em;
+	color: #efefef;
+	font-weight: 300;
+}
+
+.page-card-nav ul li a {
+  color: #efefef;
+}
+
+@media screen and (max-width: 640px) {
+	.page-card {
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 960px) {
+	header-nav {
+		display: none;
+	}
+
+	header-logo {
+		width: 300px;
+	}
+
+	header-mobile-hamburger,
+	header-mobile-menu {
+		display: block;
+	}
+
+	#menu-toggle:checked + header-mobile-hamburger .hamburger span {
+		opacity: 0;
+		background: #fff;
+	}
+
+	#menu-toggle:checked + header-mobile-hamburger .hamburger span:first-of-type {
+		transform: rotate(45deg);
+		opacity: 1;
+		position: absolute;
+		top: 11px;
+	}
+
+	#menu-toggle:checked + header-mobile-hamburger .hamburger span:last-of-type {
+		transform: rotate(-45deg);
+		opacity: 1;
+		position: absolute;
+		top: 11px;
+	}
+
+	#menu-toggle:checked + header-mobile-hamburger .hamburger {
+		position: fixed;
+	}
+
+	#menu-toggle:checked ~ header-mobile-menu .mobile-menu {
+		right: 0;
+	}
+}

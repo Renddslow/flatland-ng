@@ -1,0 +1,25 @@
+.footer-social {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	background: #333;
+	overflow: hidden;
+}
+
+.footer-social ul {
+  text-align: center;
+	margin: 2em auto;
+}
+
+.footer-social ul li {
+	display: inline;
+  margin: 0 1em;
+}
+
+.footer-social ul li a {
+  color: #eee;
+}
+
+.footer-social ul li a i {
+  font-size: 1.5em;
+}

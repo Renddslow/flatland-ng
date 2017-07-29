@@ -1,0 +1,8 @@
+.post-content {
+  width: 85%;
+  display: block;
+  margin: 2em auto;
+  font-size: 1.1em;
+  font-weight: 300;
+	white-space: pre-line;
+}

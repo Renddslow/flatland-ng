@@ -1,0 +1,16 @@
+<div class="page">
+	<div class="page-background" [ngStyle]="{'background-image': 'url(' + pageData.jumbotronImage + ')'}">
+		<h1>{{ pageData.title }}</h1>
+		<div class="gradient"></div>
+	</div>
+	<div class="page-card">
+		<div class="page-card-nav" *ngIf="pageData.metaFields.length">
+			<ul>
+				<li *ngFor="let metaItem of pageData.metaFields">{{ metaItem }}</li>
+			</ul>
+		</div>
+		<div class="post-content">
+			<markdown [data]="pageData.content"></markdown>
+		</div>
+	</div>
+</div>

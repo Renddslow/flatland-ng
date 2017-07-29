@@ -1,0 +1,9 @@
+<div class="homepage-jumbo" [ngStyle]="{'background-image': 'url(' + page.jumbotronImage + ')'}">
+	<div class="homepage-content-zone">
+		<h1>{{ page.callout }}</h1>
+		<a [routerLink]="[page.callToAction.uri]" *ngIf="page.callToAction">{{ page.callToAction.label }}</a>
+	</div>
+</div>
+<div class="homepage-slogan">
+	<span>{{ page.content }}</span>
+</div>
