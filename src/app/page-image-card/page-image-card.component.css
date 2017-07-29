@@ -39,8 +39,15 @@
 }
 
 .card-meta h2 {
-  margin: 0;
+  margin: .5em 0;
   text-align: left;
+	font-size: 1.4em;
+}
+
+.card-meta-data {
+  font-size: .8em;
+  color: #666;
+  font-weight: 300;
 }
 
 .tag {
