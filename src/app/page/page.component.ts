@@ -51,4 +51,5 @@ class Page {
 	content: string = "";
 	jumbotronImage: string = "";
 	meta: object;
+	navigation?: [object];
 }
