@@ -68,7 +68,7 @@ const appRoutes: Routes = [
 		),
 		HttpModule,
 		MarkdownModule.forRoot(),
-		FormsModule
+		FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
