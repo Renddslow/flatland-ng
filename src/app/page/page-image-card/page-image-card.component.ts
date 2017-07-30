@@ -9,6 +9,7 @@ import { Http, Response } from '@angular/http';
 export class PageImageCardComponent implements OnInit {
 
 	@Input() type: string;
+	@Input() permalink?: string;
 
 	sermons = [];
 	events = [];
@@ -21,6 +22,8 @@ export class PageImageCardComponent implements OnInit {
   ngOnInit() {
 		if (this.type.includes("watch")) {
 			this.getSermons();
+		} else if (this.type.includes("recommended")) {
+			this.getRecommendations("stuff");
 		} else if (this.type.includes("enjoy")) {
 			this.http.request(`https://api.flatlandchurch.com/v1/events/`)
 				.subscribe((res: Response) => {
@@ -58,5 +61,17 @@ export class PageImageCardComponent implements OnInit {
 				this.page += 1;
 			});
 	};
+
+
+	getRecommendations = (permalink) => {
+		this.http.request(`https://api.flatlandchurch.com/v1/watch/sermons`)
+			.subscribe((res: Response) => {
+				console.log(res.json());
+				this.sermons.push(res.json()['sermons'][0]);
+				this.sermons.push(res.json()['sermons'][1]);
+				this.sermons.push(res.json()['sermons'][2]);
+				console.log(this.sermons);
+			});
+	}
 
 }
