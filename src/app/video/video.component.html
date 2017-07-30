@@ -5,23 +5,28 @@
 	<div class="page-card">
 		<div class="video-block">
 			<div class="video-image"></div>
-			<div class="video-wrapper">
-				<iframe [src]="sermon.videoURI" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<div class="video-wrapper" *ngIf="sermon">
+				<iframe [src]="sermon['videoURI']" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 			</div>
-			<div class="video-block-container">
-				<div class="video-details">
+			<div class="video-block-container" *ngIf="sermon">
+				<div class="video-details flex-item">
 					<span id="video-type">Sermons</span>
 					<h1>{{ sermon['title'] }}</h1>
-					<a *ngIf="sermon.series" class="series">{{ sermon['series'] }}</a>
+					<a *ngIf="sermon['series']" class="series">{{ sermon['series'] }}</a>
 					<span>{{ sermon['speaker'] }}</span>
 					<span id="date">{{ sermon['date_preached'] }}</span>
 					<p>{{ sermon['description'] }}</p>
 					<a class="cta">Read More</a>
 				</div>
-			</div>
-			<div class="video-social">
-				<a class="cta">Share</a>
+				<div class="video-social flex-item">
+					<a class="cta">Share</a>
+				</div>
 			</div>
 		</div>
+		<div class="recommended-videos">
+			<h3>Recommended Videos</h3>
+			<page-image-card [type]="'recommended'"></page-image-card>
+		</div>
+		<a [routerLink]="['/watch']" id="browse">Browse All Sermons</a>
 	</div>
 </div>

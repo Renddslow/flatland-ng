@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Http, Response } from '@angular/http';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -11,10 +11,17 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class VideoComponent implements OnInit {
 	sub: any;
 	sermon: object;
+	recommended = [];
 
-  constructor(private http: Http, private route: ActivatedRoute, private sanitizer: DomSanitizer) { }
+  constructor(private http: Http, private route: ActivatedRoute, private sanitizer: DomSanitizer, private router: Router) { }
 
   ngOnInit() {
+		this.router.events.subscribe((evt) => {
+        if (!(evt instanceof NavigationEnd)) {
+            return;
+        }
+        window.scrollTo(0, 0)
+    });
 		this.sub = this.route.params.subscribe(params => {
 			let uri = "https://api.flatlandchurch.com/v1/watch/sermons/";
 			this.http.request(`${uri}${params['permalink']}`)
