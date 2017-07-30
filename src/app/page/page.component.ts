@@ -3,11 +3,12 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Http, Response } from '@angular/http';
 
 import { Page } from '../page';
+import { SeoService } from '../seo-service';
 
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',
-  styleUrls: ['./page.component.css']
+  styleUrls: ['./page.component.css'],
 })
 export class PageComponent implements OnInit {
 	sub: any;
@@ -47,6 +48,15 @@ export class PageComponent implements OnInit {
 			this.http.request(`${pageURI}${this.permalink}`)
 				.subscribe((res: Response) => {
 					this.page = res.json();
+					let seo = new SeoService(
+						this.page['meta']['image'],
+						this.page['meta']['permalink'],
+						this.page['meta']['canonical'],
+						this.page['meta']['description'],
+						this.page['meta']['title'],
+						{}
+					);
+					seo.applyTags(seo.tags);
 				});
 		});
   }
