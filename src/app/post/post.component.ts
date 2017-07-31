@@ -48,7 +48,6 @@ export class PostComponent implements OnInit {
 						}
 						this.pageData.content = data.description;
 						this.pageData.jumbotronImage = data.image;
-						console.log(this.pageData);
 					});
 			} else if (this.route.toString().includes("blog")) {
 				this.http.request(`https://api.flatlandchurch.com/v1/blog/post/${params['permalink']}`)

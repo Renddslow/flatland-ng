@@ -13,6 +13,8 @@ export class VideoComponent implements OnInit {
 	sermon: object;
 	recommended = [];
 
+	modalOpen = false;
+
   constructor(private http: Http, private route: ActivatedRoute, private sanitizer: DomSanitizer, private router: Router) { }
 
   ngOnInit() {
@@ -31,5 +33,9 @@ export class VideoComponent implements OnInit {
 				});
 		});
   }
+
+	openModal = () => {
+		this.modalOpen = true;
+	}
 
 }

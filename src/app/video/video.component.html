@@ -16,11 +16,12 @@
 					<span>{{ sermon['speaker'] }}</span>
 					<span id="date">{{ sermon['date_preached'] }}</span>
 					<p>{{ sermon['description'] }}</p>
-					<a class="cta">Read More</a>
+					<a class="cta" [routerLink]="['/blog']">Read More</a>
 				</div>
 				<div class="video-social flex-item">
-					<a class="cta">Share</a>
+					<a class="cta" (click)="openModal()">Share</a>
 				</div>
+				<share *ngIf="sermon" [sermonData]="sermon" [(modalOpen)]="modalOpen"></share>
 			</div>
 		</div>
 		<div class="recommended-videos">

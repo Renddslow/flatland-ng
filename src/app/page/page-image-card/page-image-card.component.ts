@@ -66,11 +66,9 @@ export class PageImageCardComponent implements OnInit {
 	getRecommendations = (permalink) => {
 		this.http.request(`https://api.flatlandchurch.com/v1/watch/sermons`)
 			.subscribe((res: Response) => {
-				console.log(res.json());
 				this.sermons.push(res.json()['sermons'][0]);
 				this.sermons.push(res.json()['sermons'][1]);
 				this.sermons.push(res.json()['sermons'][2]);
-				console.log(this.sermons);
 			});
 	}
 
