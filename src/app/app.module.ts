@@ -26,6 +26,7 @@ import { PageImageCardComponent } from './page/page-image-card/page-image-card.c
 import { PostComponent } from './post/post.component';
 import { BrowseComponent } from './browse/browse.component';
 import { VideoComponent } from './video/video.component';
+import { ShareComponent } from './video/share/share.component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomepageComponent },
@@ -59,7 +60,8 @@ const appRoutes: Routes = [
     PageImageCardComponent,
     PostComponent,
     BrowseComponent,
-    VideoComponent
+    VideoComponent,
+    ShareComponent
   ],
   imports: [
     BrowserModule,

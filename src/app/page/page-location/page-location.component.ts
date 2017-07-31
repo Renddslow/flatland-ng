@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
 export class PageLocationComponent {
 	@Input() timeChange: string;
 	scrollTo = (location) => {
-		console.log(location);
+		window.scroll(0, document.getElementById(location).offsetTop + 300);
 	}
 }
