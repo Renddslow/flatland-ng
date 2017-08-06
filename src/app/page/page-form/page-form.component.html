@@ -1,6 +1,6 @@
 <div class="page-form {{ name }}" [ngSwitch]="name" id="{{ name }}">
 
-	<h2>{{ title }}</h2>
+	<h2 *ngIf="title">{{ title }}</h2>
 
 	<form *ngSwitchCase="'visit'" #heroForm="ngForm">
 		<div class="form-group">
@@ -35,4 +35,89 @@
 			</label>
 		</div>
 	</form>
+
+	<div *ngSwitchCase="'give'" class="giving-form">
+		<div class="login-info" *ngIf="auth.isAuthenticated()">
+			<div class="profile-image"
+					[ngStyle]="{'background-image': 'url('+ profile?.picture +')'}"></div>
+			<span>Welcome back, {{ profile?.given_name }}</span>
+		</div>
+
+		<a *ngIf="!auth.isAuthenticated()" (click)="auth.login()" class="login-button">Log In</a>
+		<a *ngIf="auth.isAuthenticated()" (click)="auth.logout()" class="logout-button">Log Out</a>
+
+		<div class="logged-in-form" *ngIf="auth.isAuthenticated()">
+			<div class="form-row">
+				<label for="recurring" class="cta">
+					<span *ngIf="!giving.isRecurring">Set Up a Recurring Gift</span>
+					<span *ngIf="giving.isRecurring">Make a One Time Gift</span>
+				</label>
+				<input type="checkbox" id="recurring" [(ngModel)]="giving.isRecurring">
+			</div>
+			<div class="recurring-info" *ngIf="giving.isRecurring">
+				<div class="form-row recurring-boxes">
+					<label>
+						Recurring Type
+					</label>
+					<label class="recurring-type" [ngClass]="{'active': giving.recurring['type'] == 'weekly'}">
+						Weekly
+						<input type="radio"
+									[(ngModel)]="giving.recurring['type']"
+									value="weekly">
+					</label>
+					<label class="recurring-type" [ngClass]="{'active': giving.recurring['type'] == 'bi-weekly'}">
+						Every-Other Week
+						<input type="radio"
+									[(ngModel)]="giving.recurring['type']"
+									value="bi-weekly">
+					</label>
+					<label class="recurring-type" [ngClass]="{'active': giving.recurring['type'] == 'monthly'}">
+						Monthly
+						<input type="radio"
+									[(ngModel)]="giving.recurring['type']"
+									value="monthly">
+					</label>
+					<label class="recurring-type" [ngClass]="{'active': giving.recurring['type'] == 'yearly'}">
+						Yearly
+						<input type="radio"
+									[(ngModel)]="giving.recurring['type']"
+									value="yearly">
+					</label>
+				</div>
+				<div class="form-row">
+					<label for="recurring-start">
+						Start Date
+					</label>
+					<input 	type="date"
+									class="StripeElement InputElement"
+									[(ngModel)]="giving.recurring['givingStartDate']"
+									id="recurring-start">
+				</div>
+			</div>
+		</div>
+		<div class="user-info">
+			<div class="form-row">
+				<label for="full-name">
+					Full Name
+				</label>
+				<input type="text" id="full-name" [(ngModel)]="giving.user['name']" required>
+			</div>
+			<div class="form-row">
+				<label for="email">
+					Email
+				</label>
+				<input type="email" id="full-name" [(ngModel)]="giving.user['email']" required>
+			</div>
+		</div>
+		<form method="post" id="payment-form">
+		  <div class="form-row">
+		    <label for="card-element">
+		      Credit or debit card
+		    </label>
+		    <div id="card-element"></div>
+		    <div id="card-errors" role="alert"></div>
+		  </div>
+		  <button class="cta">{{ giving.message }}</button>
+		</form>
+	</div>
 </div>
