@@ -2,7 +2,7 @@ export class Page {
 	callout: string = "";
 	components: [object];
 	content: string = "";
-	jumbotronImage: string = "";
+	image: string = "";
 	meta: object;
 	navigation?: [object];
 }

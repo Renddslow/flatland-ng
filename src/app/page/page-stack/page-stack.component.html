@@ -2,10 +2,10 @@
 	<div class="fc-stack-item" *ngFor="let stackItem of stack">
 		<h3>{{ stackItem['title'] }}</h3>
 		<div><markdown>{{ stackItem['content'] }}</markdown></div>
-		<a class="cta" *ngIf="stackItem.action && stackItem.action.internal" [routerLink]="[stackItem['action']['uri']]">{{ stackItem['action']['label'] }}</a>
-		<a class="cta" *ngIf="stackItem.action && !stackItem.action.internal" href="{{ stackItem['action']['uri'] }}">{{ stackItem['action']['label'] }}</a>
+		<a class="cta" *ngIf="stackItem.action && stackItem.action.internalUrl" [routerLink]="['/'] + stackItem['action']['internalUrl']">{{ stackItem['action']['label'] }}</a>
+		<a class="cta" *ngIf="stackItem.action && stackItem.action.externalUrl" href="{{ stackItem['action']['externalUrl'] }}">{{ stackItem['action']['label'] }}</a>
 		<p *ngIf="stackItem['lists']">
-			<a *ngFor="let link of stackItem['lists']" href="{{ link['uri'] }}">{{ link['label'] }}; </a>
+			<a *ngFor="let link of stackItem['lists']" href="{{ link['uri'] }}">{{ link['title'] }}; </a>
 		</p>
 	</div>
 </div>

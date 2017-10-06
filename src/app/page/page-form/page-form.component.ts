@@ -1,13 +1,19 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'page-form',
   templateUrl: './page-form.component.html',
   styleUrls: ['./page-form.component.css']
 })
-export class PageFormComponent {
+export class PageFormComponent implements OnInit {
 	@Input() title: string;
 	@Input() name: string;
+
+	profile: any;
+
+	ngOnInit() {
+  }
 
 	visitor: Visitor = {
 		firstName: null,
@@ -35,10 +41,6 @@ export class PageFormComponent {
 		}
 	];
 
-	onBlur = () => {
-		console.log(this.visitor);
-	};
-
 	addSpouse = () => {
 		this.visitor.spouseCount = 1;
 		this.visitor.spouse = { name: null };
@@ -58,6 +60,22 @@ export class PageFormComponent {
 				dob: null
 			});
 		}
+	}
+
+	handleForm = (card, stripe, callback) => {
+		var form = document.getElementById('payment-form');
+		form.addEventListener('submit', function(event) {
+			event.preventDefault();
+
+			stripe.createToken(card).then(function(result) {
+				if (result.error) {
+					var errorElement = document.getElementById('card-errors');
+					errorElement.textContent = result.error.message;
+				} else {
+					callback(result.token.id);
+				}
+			});
+		});
 	}
 
 }

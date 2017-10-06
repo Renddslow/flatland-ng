@@ -6,6 +6,7 @@ import { MarkdownModule } from 'angular2-markdown';
 import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { AuthService } from './auth.service';
 import { HeaderComponent } from './header/header.component';
 import { HeaderLoginComponent } from './header/header-login/header-login.component';
 import { HeaderLogoComponent } from './header/header-logo/header-logo.component';
@@ -27,9 +28,12 @@ import { PostComponent } from './post/post.component';
 import { BrowseComponent } from './browse/browse.component';
 import { VideoComponent } from './video/video.component';
 import { ShareComponent } from './video/share/share.component';
+import { CallbackComponent } from './callback/callback.component';
+import { PageImageStackComponent } from './page/page-image-stack/page-image-stack.component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomepageComponent },
+	{ path: 'callback', component: CallbackComponent },
 	{ path: 'enjoy/:permalink', component: PostComponent },
 	{ path: 'blog/:permalink', component: PostComponent },
 	{ path: 'watch', component: BrowseComponent },
@@ -61,7 +65,9 @@ const appRoutes: Routes = [
     PostComponent,
     BrowseComponent,
     VideoComponent,
-    ShareComponent
+    ShareComponent,
+    CallbackComponent,
+    PageImageStackComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +78,7 @@ const appRoutes: Routes = [
 		MarkdownModule.forRoot(),
 		FormsModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

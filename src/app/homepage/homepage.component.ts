@@ -32,8 +32,11 @@ export class HomepageComponent implements OnInit {
         }
         window.scrollTo(0, 0)
     });
-		let pageURI = "https://api.flatlandchurch.com/v2/pages/";
-		this.http.request(`${pageURI}home`)
+		let pageURI = "https://api.flatlandchurch.com/v2/pages";
+		let params = {
+			key: 'pk_e6afff4e5ad186e9ce389cc21c225'
+		};
+		this.http.request(`${pageURI}/home`, {params})
 			.subscribe((res: Response) => {
 				this.page = res.json();
 			});

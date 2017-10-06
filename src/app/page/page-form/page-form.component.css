@@ -25,6 +25,33 @@ input:focus {
 	border-bottom-width: 2px;
 }
 
+.cta {
+	appearance: none;
+	-webkit-appearance: none;
+	border: none;
+	font-size: 1em;
+	width: 100%;
+	outline: none;
+}
+
+.giving-form {
+	width: 80%;
+	display: block;
+	margin: 0 auto;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 300;
+}
+
+.profile-image {
+	width: 50px;
+	height: 50px;
+	display: block;
+	border-radius: 100px;
+	background-size: cover;
+	background-position: center;
+	float: left;
+}
+
 .form-group {
 	display: flex;
 	margin: 1em 0;
@@ -38,4 +65,102 @@ input:focus {
 .full {
 	width: 98%;
 	margin: auto;
+}
+
+a.login-button {
+	margin-bottom: 3em;
+  text-decoration: underline;
+  display: block;
+  cursor: pointer;
+}
+
+a.logout-button {
+	font-weight: 400;
+	cursor: pointer;
+	clear: both;
+	margin: 1em 0 3em;
+	display: block;
+}
+
+a.logout-button:hover {
+	text-decoration: underline;
+}
+
+.login-info {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+.login-info span {
+	float: left;
+	display: block;
+	margin: .5em 20px;
+}
+
+.StripeElement {
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+label {
+	display: block;
+	cursor: pointer;
+	width: 100%;
+}
+
+.form-row {
+	margin-bottom: 2em;
+}
+
+.form-row.recurring-boxes {
+  display: flex;
+	flex-wrap: wrap;
+}
+
+label.recurring-type {
+	display: block;
+	width: calc(50% - 16px);
+	padding: 6% 0;
+	text-align: center;
+	box-sizing: border-box;
+	background: #fff;
+	box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),
+							0 2px 2px 0 rgba(0,0,0,.14),
+							0 1px 5px 0 rgba(0,0,0,.12);
+	margin: .5em;
+}
+
+label.recurring-type.active {
+	background: #acc35b;
+	color: #fff;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+@media screen and (min-width: 640px) {
+	label.recurring-type {
+		width: calc(25% - 16px);
+		padding: 4% 0;
+		margin: 0 .5em;
+	}
 }
