@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Http, Response } from '@angular/http';
 
-import { Page } from '../page';
-
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',
@@ -12,7 +10,7 @@ import { Page } from '../page';
 export class PageComponent implements OnInit {
 	sub: any;
 	permalink: string;
-	page: {};
+	page: object;
 	timeChange: string = null;
 
   constructor(private http: Http, private route: ActivatedRoute, private router: Router) {
