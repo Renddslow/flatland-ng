@@ -29,6 +29,7 @@ import { BrowseComponent } from './browse/browse.component';
 import { VideoComponent } from './video/video.component';
 import { ShareComponent } from './video/share/share.component';
 import { CallbackComponent } from './callback/callback.component';
+import { PageImageStackComponent } from './page/page-image-stack/page-image-stack.component';
 
 const appRoutes: Routes = [
 	{ path: '', component: HomepageComponent },
@@ -65,7 +66,8 @@ const appRoutes: Routes = [
     BrowseComponent,
     VideoComponent,
     ShareComponent,
-    CallbackComponent
+    CallbackComponent,
+    PageImageStackComponent
   ],
   imports: [
     BrowserModule,

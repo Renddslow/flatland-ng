@@ -1,1 +1,34 @@
+.page-card-nav ul {
+  overflow-x: auto;
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+}
 
+.page-card-nav:before {
+  content: "";
+  width: 34px;
+  height: 37px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(left, rgba(51,51,51,1), rgba(0,0,0,0));
+  z-index: 100;
+}
+
+.page-card-nav ul li:last-child {
+  margin-right: 4em;
+}
+
+.page-card-nav:after {
+  content: "";
+  width: 80px;
+  height: 37px;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: -webkit-linear-gradient(right, rgba(51,51,51,1), rgba(0,0,0,0));
+  z-index: 100;
+}

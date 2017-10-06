@@ -12,17 +12,11 @@ import { Page } from '../page';
 export class PageComponent implements OnInit {
 	sub: any;
 	permalink: string;
-	page: Page;
+	page: {};
 	timeChange: string = null;
 
   constructor(private http: Http, private route: ActivatedRoute, private router: Router) {
-		this.page = {
-			callout: "",
-			components: [{}],
-			content: "",
-			jumbotronImage: "",
-			meta: {}
-		}
+		this.page = {}
 	}
 
   ngOnInit() {
@@ -44,7 +38,10 @@ export class PageComponent implements OnInit {
 				.subscribe((res: Response) => {
 					this.timeChange = res.json().message;
 				});
-			this.http.request(`${pageURI}${this.permalink}`)
+			let queryParams = {
+				key: 'pk_e6afff4e5ad186e9ce389cc21c225'
+			};
+			this.http.request(`${pageURI}${this.permalink}`, {params: queryParams})
 				.subscribe((res: Response) => {
 					this.page = res.json();
 					// this.metaService.setTitle(this.page['meta']['title']);
