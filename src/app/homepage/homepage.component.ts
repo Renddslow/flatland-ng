@@ -11,7 +11,7 @@ export class HomepageComponent implements OnInit {
 	stuff = "header-nav";
 	permalink: string;
 	sub: any;
-	page: object;
+	page: {};
 
   constructor(private http: Http, private router: Router, private route: ActivatedRoute) {}
 

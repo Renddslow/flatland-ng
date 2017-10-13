@@ -6,7 +6,6 @@ import { MarkdownModule } from 'angular2-markdown';
 import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { AuthService } from './auth.service';
 import { HeaderComponent } from './header/header.component';
 import { HeaderLoginComponent } from './header/header-login/header-login.component';
 import { HeaderLogoComponent } from './header/header-logo/header-logo.component';
@@ -78,7 +77,7 @@ const appRoutes: Routes = [
 		MarkdownModule.forRoot(),
 		FormsModule,
   ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
