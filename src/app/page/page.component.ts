@@ -10,7 +10,7 @@ import { Http, Response } from '@angular/http';
 export class PageComponent implements OnInit {
 	sub: any;
 	permalink: string;
-	page: object;
+	page: {};
 	timeChange: string = null;
 
   constructor(private http: Http, private route: ActivatedRoute, private router: Router) {
