@@ -5,8 +5,8 @@
 			<div class="fc-stack-text">
 				<h3>{{ stackItem['title'] }}</h3>
 				<div><markdown>{{ stackItem['content'] }}</markdown></div>
-				<a class="cta" *ngIf="stackItem.action && stackItem.action.internalUrl" [routerLink]="['/'] + stackItem['action']['internalUrl']">{{ stackItem['action']['label'] }}</a>
-				<a class="cta" *ngIf="stackItem.action && stackItem.action.externalUrl" href="{{ stackItem['action']['externalUrl'] }}">{{ stackItem['action']['label'] }}</a>
+				<a class="cta" *ngIf="stackItem['action'] && stackItem['action']['internalUrl']" [routerLink]="['/'] + stackItem['action']['internalUrl']">{{ stackItem['action']['label'] }}</a>
+				<a class="cta" *ngIf="stackItem['action'] && stackItem['action']['externalUrl']" href="{{ stackItem['action']['externalUrl'] }}">{{ stackItem['action']['label'] }}</a>
 			</div>
 		</div>
 	</div>

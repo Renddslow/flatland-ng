@@ -1,5 +1,5 @@
 <div class="card-container" *ngIf="type == 'enjoy'">
-	<a *ngFor="let event of events" class="image-card" [routerLink]="['/enjoy/', event.permalink]">
+	<a *ngFor="let event of events" class="image-card" [routerLink]="['/enjoy/', event['permalink']]">
 		<div class="card-image" [ngStyle]="{'background-image': 'url(' + event['image'] + ')'}"></div>
 		<div class="card-meta">
 			<h2>{{ event['title'] }}</h2>

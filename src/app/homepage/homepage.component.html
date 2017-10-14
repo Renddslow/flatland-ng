@@ -1,9 +1,9 @@
-<div class="homepage-jumbo" [ngStyle]="{'background-image': 'url(' + page.image + ')'}">
+<div class="homepage-jumbo" [ngStyle]="{'background-image': 'url(' + page['image'] + ')'}">
 	<div class="homepage-content-zone">
-		<h1>{{ page.callout }}</h1>
-		<a [routerLink]="[page.action.internalUrl]" *ngIf="page.action">{{ page.action.label }}</a>
+		<h1>{{ page['callout'] }}</h1>
+		<a [routerLink]="[page['action']['internalUrl']]" *ngIf="page['action']">{{ page['action']['label'] }}</a>
 	</div>
 </div>
 <div class="homepage-slogan">
-	<span>{{ page.content }}</span>
+	<span>{{ page['content'] }}</span>
 </div>

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'page-form',

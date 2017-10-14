@@ -1,21 +1,21 @@
 <div class="page">
-	<div class="page-background" [ngStyle]="{'background-image': 'url(' + page.image + ')'}">
-		<h1>{{ page.callout }}</h1>
+	<div class="page-background" [ngStyle]="{'background-image': 'url(' + page['image'] + ')'}">
+		<h1>{{ page['callout'] }}</h1>
 		<div class="gradient"></div>
 	</div>
 	<div class="page-card">
-		<div class="page-card-nav" *ngIf="page.navigation">
+		<div class="page-card-nav" *ngIf="page['navigation']">
 			<ul>
-				<li *ngFor="let navItem of page.navigation">
-					<a [routerLink]="['/'] + navItem.internalUrl">{{ navItem.title }}</a></li>
+				<li *ngFor="let navItem of page['navigation']">
+					<a [routerLink]="['/'] + navItem['internalUrl']">{{ navItem['title'] }}</a></li>
 			</ul>
 		</div>
-		<div class="page-component"  *ngFor="let component of page.components" [ngSwitch]="component.type">
-			<page-stack *ngSwitchCase="'stack'" [stack]="component.contents"></page-stack>
-			<page-image-stack *ngSwitchCase="'image-stack'" [stack]="component.contents"></page-image-stack>
+		<div class="page-component"  *ngFor="let component of page['components']" [ngSwitch]="component['type']">
+			<page-stack *ngSwitchCase="'stack'" [stack]="component['contents']"></page-stack>
+			<page-image-stack *ngSwitchCase="'image-stack'" [stack]="component['contents']"></page-image-stack>
 			<page-location *ngSwitchCase="'location'" [timeChange]="timeChange"></page-location>
-			<page-markdown *ngSwitchCase="'markdown'" [content]="component.contents[0]"></page-markdown>
-			<page-form *ngSwitchCase="'form'" [title]="component.contents[0].title" [name]="component.contents[0].formName"></page-form>
+			<page-markdown *ngSwitchCase="'markdown'" [content]="component['contents'][0]"></page-markdown>
+			<page-form *ngSwitchCase="'form'" [title]="component['contents'][0]['title']" [name]="component['contents'][0]['formName']"></page-form>
 			<page-image-card *ngSwitchCase="'image-card'" [type]="permalink"></page-image-card>
 		</div>
 	</div>
